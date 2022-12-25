@@ -1,0 +1,10 @@
+class ErrorMessage:
+    NEGATIVE_ID = "Error: The entered topic id is negative.\nPlease provide a positive topic id."
+    DUPLICATE_FLAG = "Error: Only one of the flags: last, secondlast, thirdlast can be applied.\nYou applied more than one."
+    INVALID_ID = "Error: The entered topic id is invalid.\nThere is no topic with the given topic id."
+    NEGATIVE_DURATION = "Error: The entered duration value is negative.\nPlease provide a positive value."
+    NEGATIVE_PAUSE = "Error: The entered pause value is negative.\nPlease provide a positive value."
+    EMPTY_NAME = "Error: The entered topic name is an empty string.\nPlease provide a name with a length of at least one character."
+    NEGATIVE_PARENT = "Error: The entered parent topic id is negative.\nPlease provide a positive topic id."
+    INVALID_PARENT = "Error: The entered parent topic id is invalid.\nThere is no topic with the given topic id."
+    INVALID_COUNT = "Error: The count has to be greater than 0.\nPlease enter a valid count."

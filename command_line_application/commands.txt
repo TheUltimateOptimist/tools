@@ -1,0 +1,26 @@
+tools
+|
+|---track
+|   options: --id: int = 0
+|            --duration: int = 1620
+|            --pause: int = 180
+|            --last: bool = False
+|            --secondlast: bool = False
+|            --thirdlast: bool = False
+|           
+|---topics
+|   |
+|   |---add
+|   |   parameters: name: string
+|   |               parent: int
+|   |
+|   |---show
+|       options: --parent: int = 0
+|
+|---sessions
+|   |
+|   |---last
+|   |   options: --count: int = 1
+|   |
+|   |---today
+--------------------------------------------
