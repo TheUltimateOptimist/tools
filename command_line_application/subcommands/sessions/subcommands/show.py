@@ -3,7 +3,7 @@ import typer
 from src.io.printer import Printer
 from src.io.error_message import ErrorMessage
 from src.io.sessions_table import SessionsTable
-from src.data.api import get_past_sessions, get_todays_sessions
+from src.data.sdk import get_past_sessions, get_todays_sessions
 
 app = typer.Typer()
 

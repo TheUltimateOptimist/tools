@@ -8,7 +8,7 @@ class SessionsTable:
         self.sessions = sessions
 
     def print(self):
-        table = Table("topic id", "topic name", "start", "end", title=self.title)
+        table = Table("topic id", "topic name", "start", "end", title=self.title, title_justify="left")
         for session in self.sessions:
             start = self.__get_date_string(session[2])
             end = self.__get_date_string(session[3])

@@ -1,4 +1,4 @@
-from src.data.api import get_topic_name, get_past_topic_id
+from src.data.sdk import get_topic_name, get_past_topic_id
 from src.io.error_message import ErrorMessage
 
 class TrackingConfig:

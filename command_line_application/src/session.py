@@ -1,6 +1,6 @@
 import time
 from src.data.session_config import SessionConfig
-from src.data.api import add_session
+from src.data.sdk import add_session
 
 class Session:
     def __init__(self, session_config: SessionConfig) -> None:

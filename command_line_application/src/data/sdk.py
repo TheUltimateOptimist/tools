@@ -61,3 +61,15 @@ def get_todays_sessions():
     if not response.ok:
         raise Exception("API call to get today's sessions did fail")
     return json.loads(response.text)
+
+def get_number_of_todays_sessions() -> int:
+    response = requests.get(f"{URL_PREFIX}/sessions/count/today")
+    if not response.ok:
+        raise Exception("API call to get number of today's sessions did fail")
+    return int(response.text)
+
+def get_number_of_topics_sessions(topic_id: int) -> int:
+    response = requests.get(f"{URL_PREFIX}/sessions/count/{topic_id}")
+    if not response.ok:
+        raise Exception("API call to get number of today's sessions did fail")
+    return int(response.text)

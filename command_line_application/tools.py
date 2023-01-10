@@ -1,15 +1,15 @@
 import typer
 
-import subcommands.sessions as sessions
-import subcommands.topics as topics
+import subcommands.sessions.sessions as sessions_subcommand
+import subcommands.topics as topics_subcommand
 
 from src.data.tracking_config import TrackingConfig
 from src.io.printer import Printer
 from src.tracker import Tracker
 
 app = typer.Typer()
-app.add_typer(sessions.app, name="sessions")
-app.add_typer(topics.app, name="topics")
+app.add_typer(sessions_subcommand.app, name="sessions")
+app.add_typer(topics_subcommand.app, name="topics")
 
 def launch_lofi():
     import webbrowser

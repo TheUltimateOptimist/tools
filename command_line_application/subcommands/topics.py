@@ -1,5 +1,5 @@
 import typer
-from src.data.api import get_topic_name, add_topic, get_hierarchy
+from src.data.sdk import get_topic_name, add_topic, get_hierarchy
 from src.io.printer import Printer
 from src.io.error_message import ErrorMessage
 from src.io.topics_tree import TopicsTree
