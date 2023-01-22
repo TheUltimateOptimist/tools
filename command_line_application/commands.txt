@@ -19,8 +19,17 @@ tools
 |
 |---sessions
 |   |
-|   |---last
-|   |   options: --count: int = 1
-|   |
-|   |---today
+|   |---show
+|   |   |   
+|   |   |---last
+|   |   |   options: --count: int = 1
+|   |   |
+|   |   |---today
+|   |    
+|   |---count
+|   |   |
+|   |   |---root
+|   |   |   parameters: topic_id: int
+|   |   |   
+|   |   |---today
 --------------------------------------------
