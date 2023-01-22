@@ -41,5 +41,14 @@ def track(id: int = 0, duration: int = 1620, pause: int = 180, last: bool = Fals
     tracker = Tracker(tracking_config)
     tracker.track()
 
+@app.command()
+def send(email_path: str, destination_address: str, subject: str):
+    with open(email_path, "r", encoding="utf8") as file:
+        markdown_email = file.read()
+    import markdown
+    html_email = markdown.markdown(markdown_email)
+    from src.mailing.email_bot import EmailBot
+    EmailBot(destination_address=destination_address, subject=subject, message=html_email).send()
+
 if __name__ == "__main__":
     app()
