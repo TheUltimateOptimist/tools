@@ -1,4 +1,5 @@
 export 'footer.dart';
 export 'header.dart';
 export 'letter_head.dart';
-export 'content.dart';
+export 'product_table.dart';
+export 'table.dart';

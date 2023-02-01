@@ -27,7 +27,7 @@ class _CompanyAddress extends StatelessWidget {
     final address = company.address;
     return Text(
       "${company.name} - ${address.street} - ${address.plz} ${address.city}",
-      style: Theme.of(context).companyAddress,
+      style: theme.companyAddress,
     );
   }
 }
@@ -35,8 +35,8 @@ class _CompanyAddress extends StatelessWidget {
 class _CustomerAddress extends StatelessWidget {
   @override
   Widget build(Context context) {
-    final style = Theme.of(context).customerAddress;
-    final lineSpacing = Theme.of(context).lineSpacing.middle;
+    final style = theme.customerAddress;
+    final lineSpacing = theme.lineSpacing.middle;
     final address = [customer.name, ...customer.address.toList()];
 
     return Column(
@@ -77,10 +77,9 @@ class _InvoiceMetaData extends StatelessWidget {
 class _InvoiceId extends StatelessWidget {
   @override
   Widget build(Context context) {
-    final style = Theme.of(context).invoiceId;
     return Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-      Text("Rechnungs-Nr.", style: style),
-      Text("RE-${invoice.id}", style: style),
+      Text("Rechnungs-Nr.", style: theme.invoiceId),
+      Text("RE-${invoice.id}", style: theme.invoiceId),
     ]);
   }
 }
@@ -93,15 +92,13 @@ class _MetaData extends StatelessWidget {
 
   @override
   Widget build(Context context) {
-    final style = Theme.of(context).invoiceMetaData;
-    final lineSpacing = Theme.of(context).lineSpacing.large;
     return Container(
-      margin: EdgeInsets.symmetric(vertical: lineSpacing),
+      margin: EdgeInsets.symmetric(vertical: theme.lineSpacing.large),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(title, style: style),
-          Text(value, style: style),
+          Text(title, style: theme.invoiceMetaData),
+          Text(value, style: theme.invoiceMetaData),
         ],
       ),
     );

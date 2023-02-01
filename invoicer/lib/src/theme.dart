@@ -6,8 +6,6 @@ final colorScheme = ColorScheme(
   textBackground: PdfColor.fromHex("e6e6e6"),
 );
 
-
-
 final theme = ThemeData(
   colorScheme: colorScheme,
   footerText: TextStyle(color: colorScheme.footerText, fontSize: 8),
@@ -21,10 +19,9 @@ final theme = ThemeData(
   bodyEmphasized: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
   lineSpacing: LineSpacing(small: 1, middle: 1.5, large: 2),
   logoSize: 50,
-
 );
 
-class ThemeData extends Inherited {
+class ThemeData{
   final ColorScheme colorScheme;
   final TextStyle footerText;
   final TextStyle pageNumber;
@@ -65,24 +62,4 @@ class LineSpacing{
   final double small;
   final double middle;
   final double large;
-}
-
-class Theme extends StatelessWidget {
-  Theme({
-    required this.child,
-  });
-
-  final Widget child;
-
-  static ThemeData of(Context context) {
-    return context.dependsOn<ThemeData>()!;
-  }
-
-  @override
-  Widget build(Context context) {
-    return InheritedWidget(
-      inherited: theme,
-      build: (Context context) => child,
-    );
-  }
 }

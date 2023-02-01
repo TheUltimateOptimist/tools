@@ -10,7 +10,7 @@ class Header extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          Image(logo, width: Theme.of(context).logoSize),
+          Image(logo, width: theme.logoSize),
         ],
       ),
     );

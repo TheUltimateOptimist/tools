@@ -37,7 +37,7 @@ class _PageNumber extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
-        Text("Seite $current von $max", style: Theme.of(context).pageNumber)
+        Text("Seite $current von $max", style: theme.pageNumber)
       ],
     );
   }
@@ -53,7 +53,7 @@ class _InformationColumn extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
-      children: content.map((text) => Text(text, style: Theme.of(context).footerText)).toList(),
+      children: content.map((text) => Text(text, style: theme.footerText)).toList(),
     );
   }
 }
