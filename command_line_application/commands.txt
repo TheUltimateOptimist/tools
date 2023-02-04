@@ -25,6 +25,8 @@ tools
 |   |   |   options: --count: int = 1
 |   |   |
 |   |   |---today
+|   |   |
+|   |   |---yesterday
 |   |    
 |   |---count
 |   |   |
@@ -32,4 +34,6 @@ tools
 |   |   |   parameters: topic_id: int
 |   |   |   
 |   |   |---today
+|   |   |
+|   |   |---yesterday
 --------------------------------------------

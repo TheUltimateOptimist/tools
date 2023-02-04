@@ -56,20 +56,24 @@ def get_past_sessions(steps_back: int = 1):
         raise Exception("API call to get past sessions did fail")
     return json.loads(response.text)
 
-def get_todays_sessions():
-    response = requests.get(f"{URL_PREFIX}/sessions/today")
+def get_sessions(fr: float, to: float):
+    assert to >= fr
+    assert fr >= 0
+    response = requests.get(f"{URL_PREFIX}/sessions/{fr}/{to}")
     if not response.ok:
-        raise Exception("API call to get today's sessions did fail")
+        raise Exception("API call to get sessions did fail")
     return json.loads(response.text)
 
-def get_number_of_todays_sessions() -> int:
-    response = requests.get(f"{URL_PREFIX}/sessions/count/today")
+def get_number_of_sessions(fr: float, to: float):
+    assert to >= fr
+    assert fr >= 0
+    response = requests.get(f"{URL_PREFIX}/sessions/count/{fr}/{to}")
     if not response.ok:
-        raise Exception("API call to get number of today's sessions did fail")
-    return int(response.text)
+        raise Exception("API call to count sessions did fail")
+    return json.loads(response.text)
 
 def get_number_of_topics_sessions(topic_id: int) -> int:
     response = requests.get(f"{URL_PREFIX}/sessions/count/{topic_id}")
     if not response.ok:
-        raise Exception("API call to get number of today's sessions did fail")
+        raise Exception(f"API call to get number of  sessions for the topic id {topic_id} did fail")
     return int(response.text)
