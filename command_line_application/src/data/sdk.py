@@ -56,7 +56,7 @@ def get_past_sessions(steps_back: int = 1) -> list[SessionMetadata]:
     if not response.ok:
         raise Exception("API call to get past sessions did fail")
     raw_data: list[list] = json.loads(response.text)
-    return list(map[SessionMetadata](lambda row: SessionMetadata.from_list(row), raw_data))
+    return list(map(lambda row: SessionMetadata.from_list(row), raw_data))
 
 def get_sessions(fr: float, to: float) -> list[SessionMetadata]:
     assert to >= fr
@@ -65,7 +65,7 @@ def get_sessions(fr: float, to: float) -> list[SessionMetadata]:
     if not response.ok:
         raise Exception("API call to get sessions did fail")
     raw_data: list[list] = json.loads(response.text)
-    return list(map[SessionMetadata](lambda row: SessionMetadata.from_list(row), raw_data))
+    return list(map(lambda row: SessionMetadata.from_list(row), raw_data))
 
 def get_number_of_sessions(fr: float, to: float):
     assert to >= fr
@@ -80,3 +80,10 @@ def get_number_of_topics_sessions(topic_id: int) -> int:
     if not response.ok:
         raise Exception(f"API call to get number of  sessions for the topic id {topic_id} did fail")
     return int(response.text)
+
+def get_sessions_of_topic(topic_id: int) -> list[SessionMetadata]:
+    response = requests.get(f"{URL_PREFIX}/sessions/{topic_id}")
+    if not response.ok:
+        raise Exception("API call to get sessions did fail")
+    raw_data: list[list] = json.loads(response.text)
+    return list(map(lambda row: SessionMetadata.from_list(row), raw_data))
