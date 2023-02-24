@@ -20,6 +20,9 @@ tools
 |---sessions
 |   |
 |   |---show
+|   |   |
+|   |   |---root
+|   |   |   parameters: topic_id: int
 |   |   |   
 |   |   |---last
 |   |   |   options: --count: int = 1
