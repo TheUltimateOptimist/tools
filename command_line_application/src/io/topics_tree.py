@@ -7,7 +7,7 @@ class TopicsTree:
         self.parent_name = parent_name
         self.nodes = nodes
 
-    def print(self) -> Tree:
+    def print(self) -> None:
         root = Tree(f"{self.parent_id}: {self.parent_name}")
         trees = [(self.parent_id, root)]
         while len(self.nodes) > 0:

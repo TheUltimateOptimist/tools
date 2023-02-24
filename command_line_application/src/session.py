@@ -1,12 +1,13 @@
 import time
+from typing import  Union
 from src.data.session_config import SessionConfig
 from src.data.sdk import add_session
 
 class Session:
     def __init__(self, session_config: SessionConfig) -> None:
         self.__session_config = session_config
-        self.__start: float = None
-        self.__end: float = None
+        self.__start: Union[float, None] = None
+        self.__end: Union[float, None] = None
 
     def execute(self):
         self.__start = time.time()
@@ -18,6 +19,8 @@ class Session:
         self.__beep()
 
     def __save(self):
+        assert self.__start
+        assert self.__end
         add_session(self.__start, self.__end, self.__session_config.topic_id)
 
     def __beep(self):

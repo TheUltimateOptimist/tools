@@ -9,6 +9,7 @@ class Tracker:
         self.tracking_config = tracking_config
 
     def track(self):
+        assert self.tracking_config.topic_name
         work_timer = Timer(self.tracking_config.duration, self.tracking_config.topic_name)
         pause_timer = Timer(self.tracking_config.pause, "Pause")
         session_config = SessionConfig(self.tracking_config.topic_id, work_timer, pause_timer)
