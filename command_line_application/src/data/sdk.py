@@ -1,5 +1,6 @@
 import requests
 import json
+from .session_metadata import SessionMetadata
 
 URL_PREFIX = "http://theultimateoptimist.pythonanywhere.com/worktracker"
 
@@ -44,7 +45,7 @@ def get_past_topic_id(steps_back: int = 1):
         raise Exception("API call to get past topic id did fail")
     return int(response.text)
 
-def get_past_sessions(steps_back: int = 1):
+def get_past_sessions(steps_back: int = 1) -> list[SessionMetadata]:
     assert steps_back > 0, "steps_back hast to be greater than 0"
     """
     steps_back has to be greater than 0
@@ -54,15 +55,17 @@ def get_past_sessions(steps_back: int = 1):
     response = requests.get(f"{URL_PREFIX}/sessions/last/{steps_back}")
     if not response.ok:
         raise Exception("API call to get past sessions did fail")
-    return json.loads(response.text)
+    raw_data: list[list] = json.loads(response.text)
+    return list(map[SessionMetadata](lambda row: SessionMetadata.from_list(row), raw_data))
 
-def get_sessions(fr: float, to: float):
+def get_sessions(fr: float, to: float) -> list[SessionMetadata]:
     assert to >= fr
     assert fr >= 0
     response = requests.get(f"{URL_PREFIX}/sessions/{fr}/{to}")
     if not response.ok:
         raise Exception("API call to get sessions did fail")
-    return json.loads(response.text)
+    raw_data: list[list] = json.loads(response.text)
+    return list(map[SessionMetadata](lambda row: SessionMetadata.from_list(row), raw_data))
 
 def get_number_of_sessions(fr: float, to: float):
     assert to >= fr
