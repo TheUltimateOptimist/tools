@@ -1,5 +1,13 @@
 tools
 |
+|---popularize
+|   parameters: name: string
+|   options:    --count: int = 10
+|
+|---lofi
+|
+|---start
+|
 |---track
 |   options: --id: int = 0
 |            --duration: int = 1620

@@ -15,6 +15,28 @@ def launch_lofi():
     import webbrowser
     webbrowser.open_new_tab("https://www.youtube.com/watch?v=jfKfPfyJRdk")
 
+def enter_command(command: str, post_delay: int):
+    import keyboard
+    import time
+    keyboard.write(command)
+    time.sleep(1)
+    keyboard.send("enter")
+    time.sleep(post_delay)
+
+
+@app.command()
+def popularize(name: str, count: int = 10):
+    import time
+    time.sleep(5)
+    for i in range(count):
+        print(f"{i + 1}/{count}")
+        enter_command("flutter create popular", 3)
+        enter_command("cd popular", 1)
+        enter_command(f"flutter pub add {name}", 5)
+        enter_command('cd "C:\\Users\\JDuec"', 1)
+        enter_command("rmdir popular", 3)
+        enter_command(f"J", 3)
+
 @app.command()
 def lofi():
     launch_lofi()
