@@ -24,8 +24,8 @@ class Session:
         add_session(self.__start, self.__end, self.__session_config.topic_id)
 
     def __beep(self):
-        from winsound import Beep
-        Beep(frequency=2500, duration=3000)
+        from sound import play_sound
+        play_sound()
     
 
 
