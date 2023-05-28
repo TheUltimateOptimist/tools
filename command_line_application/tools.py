@@ -25,9 +25,9 @@ def enter_command(command: str, post_delay: int):
 
 @app.command()
 def rgbhex(r: int, g: int, b: int):
-    hex = '#{:02x}{:02x}{:02x}'.format(r, g, b)
+    hex = 'ff{:02x}{:02x}{:02x}'.format(r, g, b).upper()
     import pyperclip
-    pyperclip.copy(hex)
+    pyperclip.copy("0x" + hex)
 
 @app.command()
 def popularize(name: str, count: int = 10):
