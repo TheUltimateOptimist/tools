@@ -15,11 +15,11 @@ def add_session(start: float, end: float, topic_id: int):
     if not response.ok:
         raise Exception("API call to add session did not work")
 
-def get_hierarchy(parent_id: int):
+def get_hierarchy(parent_id: int, verbose: bool):
     """
     returns a list of lists: [[name, parent, child]]
     """
-    response = requests.get(f"{URL_PREFIX}/hierarchy/{parent_id}")
+    response = requests.get(f"{URL_PREFIX}/hierarchy/{parent_id}/{int(verbose)}")
     if not response.ok:
         raise Exception("API call to get hierarchy did not work")
     return json.loads(response.text)

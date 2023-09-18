@@ -17,6 +17,8 @@ class TopicsTree:
                 for node in self.nodes:
                     if node[1] == tree[0]:
                         text = f"{node[2]}: {node[0]}"
+                        if len(node) > 3:
+                            text = f"{text} -> {node[3]/2}h"
                         new_trees.append((node[2], tree[1].add(text)))
                     else:
                         new_nodes.append(node)

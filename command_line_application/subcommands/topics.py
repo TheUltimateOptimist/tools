@@ -22,7 +22,7 @@ def add(name: str, parent: int):
 
 
 @app.command()
-def show(parent: int = 0):
+def show(parent: int = 0, verbose: bool = False):
     if parent < 0:
         Printer.error(ErrorMessage.NEGATIVE_PARENT)
         return
@@ -30,6 +30,6 @@ def show(parent: int = 0):
     if parent_name == "None":
         Printer.error(ErrorMessage.INVALID_PARENT)
         return
-    tree_nodes = get_hierarchy(parent)
+    tree_nodes = get_hierarchy(parent, verbose)
     tree = TopicsTree(parent, parent_name, tree_nodes)
     tree.print()
