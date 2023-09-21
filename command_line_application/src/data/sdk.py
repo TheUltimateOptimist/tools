@@ -2,7 +2,7 @@ import requests
 import json
 from .session_metadata import SessionMetadata
 
-URL_PREFIX = "http://theultimateoptimist.pythonanywhere.com/worktracker"
+URL_PREFIX = "http://167.235.22.230:8001//worktracker"
 
 def add_topic(topic_name: str, parent_id: int) -> int:
     response = requests.post(f"{URL_PREFIX}/topic/add", {"topic": topic_name, "parent_id": parent_id})
