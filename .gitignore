@@ -17,3 +17,5 @@ pubspec.lock
 .vscode
 invoicer/data
 #-----------------------
+
+venv
